@@ -1,6 +1,8 @@
 const DashboardPage = () => {
   return (
-    <div>Dashboard Page (Protected)</div> 
-  )
-}
+    <div>
+      <p>Dashboard Page (Protected)</p>
+    </div>
+  );
+};
 export default DashboardPage;
