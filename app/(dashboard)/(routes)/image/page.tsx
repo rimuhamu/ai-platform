@@ -25,8 +25,10 @@ import {
 
 import { amountOptions, formSchema, resolutionOptions } from './constants';
 import Heading from '@/components/Heading';
+import { useProModal } from '@/hooks/useProModal';
 
 const PhotoPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [photos, setPhotos] = useState<string[]>([]);
 
@@ -50,7 +52,11 @@ const PhotoPage = () => {
       const urls = response.data.map((image: { url: string }) => image.url);
 
       setPhotos(urls);
-    } catch (error: any) {}
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
+    }
   };
 
   return (
