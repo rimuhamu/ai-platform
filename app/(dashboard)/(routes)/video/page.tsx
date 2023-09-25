@@ -9,15 +9,15 @@ import { toast } from 'react-hot-toast';
 import { FileAudio } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-import { Heading } from '@/components/heading';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Loader } from '@/components/loader';
-import { Empty } from '@/components/ui/empty';
-import { useProModal } from '@/hooks/use-pro-modal';
+import { Loader } from '@/components/Loader';
+import { Empty } from '@/components/Empty';
+import { useProModal } from '@/hooks/useProModal';
 
 import { formSchema } from './constants';
+import Heading from '@/components/Heading';
 
 const VideoPage = () => {
   const router = useRouter();

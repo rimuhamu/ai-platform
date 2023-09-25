@@ -26,6 +26,7 @@ import {
 import { amountOptions, formSchema, resolutionOptions } from './constants';
 import Heading from '@/components/Heading';
 import { useProModal } from '@/hooks/useProModal';
+import toast from 'react-hot-toast';
 
 const PhotoPage = () => {
   const proModal = useProModal();
@@ -55,7 +56,11 @@ const PhotoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error('Something went wrong.');
       }
+    } finally {
+      router.refresh();
     }
   };
 
